@@ -8,7 +8,7 @@ before_install:
 # install goss
 - curl -L https://goss.rocks/install | sudo sh
 # install dgoss
-- sudo curl -L https://raw.githubusercontent.com/aelsabbahy/goss/dgoss/extras/dgoss/dgoss > /usr/local/bin/dgoss
+- sudo curl -L https://raw.githubusercontent.com/aelsabbahy/goss/dgoss/extras/dgoss/dgoss -o /usr/local/bin/dgoss
 - sudo chmod 755 /usr/local/bin/dgoss
 
 script:
