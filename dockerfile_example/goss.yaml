@@ -1,0 +1,31 @@
+file:
+  /goss/docker_output.log:
+    exists: true
+    contains:
+# if DEBUG is not set, we verify that "Debugger is active" string doesn't show up
+{{if getEnv "DEBUG" | eq ""}}
+    - "!Debugger is active!"
+{{else}}
+    - "Debugger is active!"
+{{end}}
+port:
+  tcp:5000:
+    listening: true
+    ip:
+    - 0.0.0.0
+command:
+  pip list:
+    exit-status: 0
+    stdout:
+    - Flask (0.12)
+    stderr: []
+    timeout: 10000
+process:
+  python:
+    running: true
+http:
+  http://localhost:5000:
+    status: 200
+    timeout: 5000
+    body:
+    - hello world

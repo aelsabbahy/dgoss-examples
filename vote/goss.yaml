@@ -1,0 +1,16 @@
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+process:
+  gunicorn:
+    running: true
+http:
+  http://localhost:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body:
+    - {{getEnv "OPTION_A" "Cats"}} vs {{getEnv "OPTION_B" "Dogs"}}

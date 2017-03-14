@@ -1,0 +1,5 @@
+port:
+  tcp6:3306:
+    listening: true
+    ip:
+    - '::'

@@ -1,0 +1,13 @@
+file:
+  /goss/docker_output.log:
+    exists: true
+    contains:
+    - 'INFO: Jenkins is fully up and running'
+http:
+  http://localhost:8080:
+    status:
+      gt: 0
+command:
+  # "Jenkins is fully up and running" is a lie
+  sleep 1:
+    exit-status: 0

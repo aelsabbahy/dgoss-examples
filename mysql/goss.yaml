@@ -1,0 +1,19 @@
+port:
+  tcp6:3306:
+    listening: true
+    ip:
+    - '::'
+command:
+  mysql --version:
+    exit-status: 0
+    stdout:
+    - 8.0.0-dmr
+    stderr: []
+    timeout: 0
+  mysql -h localhost -u root -p{{getEnv "MYSQL_ROOT_PASSWORD"}} -e 'SELECT version()':
+    title: Validating that we can log in with $MYSQL_ROOT_PASS and checking version
+    exit-status: 0
+    stdout:
+    - 8.0.0-dmr
+    stderr: []
+    timeout: 10000
