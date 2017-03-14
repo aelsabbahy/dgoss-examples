@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export GOSS_OPTS="--format documentation"
 i=0
 for x in */;do
   echo -e "\n\n======================="
