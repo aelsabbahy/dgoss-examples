@@ -1,22 +1,12 @@
 file:
   /var/log/nginx/access.log:
     exists: true
-    mode: "0777"
-    size: 11
-    owner: root
-    group: root
     linked-to: /dev/stdout
     filetype: symlink
-    contains: []
   /var/log/nginx/error.log:
     exists: true
-    mode: "0777"
-    size: 11
-    owner: root
-    group: root
     linked-to: /dev/stderr
     filetype: symlink
-    contains: []
 package:
   nginx:
     installed: true
@@ -33,7 +23,6 @@ process:
 http:
   http://localhost:
     status: 200
-    allow-insecure: false
-    no-follow-redirects: false
     timeout: 5000
-    body: []
+    body:
+    - Welcome to nginx! 
